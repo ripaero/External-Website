@@ -45,9 +45,9 @@
     .mark .chamber { stroke: var(--ink); }
     .mark .bell    { stroke: var(--teal); }
 
-    .word { display: flex; flex-direction: column; align-items: center; margin: 0; font-family: 'Audiowide', sans-serif; font-size: 1em; font-weight: 400; line-height: 1; }
+    .word { display: flex; flex-direction: column; justify-content: space-between; align-items: center; height: 1.45em; margin: 0; font-family: 'Audiowide', sans-serif; font-size: 1em; font-weight: 400; line-height: 1; transform: translateY(-6px); }
     .word .rip  { font-size: 1em; letter-spacing: 0.04em; }
-    .word .aero { font-size: 0.2em; letter-spacing: 1.05em; margin-right: -1.05em; margin-top: 1.4em; color: #A9B4BD; }
+    .word .aero { font-size: 0.2em; letter-spacing: 1.05em; margin-right: -1.05em; margin-top: -0.02em; color: #A9B4BD; }
 
     .status {
       margin-top: 3.5em;
@@ -66,8 +66,8 @@
       text-align: center; font-size: max(11px, 1.2vh); letter-spacing: 0.12em; color: #5A5A5A;
     }
 
-    #rocket { position: fixed; top: 0; left: 0; z-index: 40; width: 76px; height: 26px; will-change: transform; display: none; }
-    .plume { transform-origin: 30px 13px; animation: flicker .07s steps(2) infinite alternate; }
+    #rocket { position: fixed; top: 0; left: 0; z-index: 40; width: 114px; height: 39px; will-change: transform; display: none; }
+    .plume { transform-origin: 45px 19.5px; animation: flicker .07s steps(2) infinite alternate; }
     @keyframes flicker { from { transform: scaleX(1); opacity: 1; } to { transform: scaleX(.86); opacity: .85; } }
   </style>
   <noscript><style>#sheet, #rocket { display: none; }</style></noscript>
@@ -242,9 +242,9 @@
     function textures() {
       PAPER = [
         null,                     // sheet 1 face: the galaxy (drawn separately)
-        grain('#E9E8E3', 0.08),   // torn core of the top sheet (off-white)
-        grain('#6F7378', 0.12),   // inner ply (cool gray, like lunar dust)
-        grain('#B9BBBE', 0.10),   // inner ply torn core (light gray)
+        grain('#FFFFFF', 0.08),   // torn core of the top sheet (off-white)
+        grain('#FFFFFF', 0.12),   // inner ply (cool gray, like lunar dust)
+        grain('#FFFFFF', 0.10),   // inner ply torn core (light gray)
       ];
     }
 
@@ -331,8 +331,8 @@
     function placeRocket(s, t) {
       const p = P(s), q = P(s + 0.002);
       const ang = Math.atan2(q.y - p.y, q.x - p.x) * 180 / Math.PI + Math.sin(t / 45) * 0.8;
-      rocket.style.transformOrigin = '62px 13px';
-      rocket.style.transform = 'translate(' + (p.x - 62).toFixed(1) + 'px,' + (p.y - 13).toFixed(1) + 'px) rotate(' + ang.toFixed(1) + 'deg)';
+      rocket.style.transformOrigin = '93px 19.5px';
+      rocket.style.transform = 'translate(' + (p.x - 93).toFixed(1) + 'px,' + (p.y - 19.5).toFixed(1) + 'px) rotate(' + ang.toFixed(1) + 'deg)';
     }
 
     // ---------- stars behind the hole ----------
